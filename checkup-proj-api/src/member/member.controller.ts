@@ -1,4 +1,4 @@
-import { Controller, Get } from "@nestjs/common";
+import { Controller, Get, Param } from "@nestjs/common";
 import { memberService } from "./member.service";
 import { Member } from "./member.entity";
 
@@ -12,4 +12,8 @@ export class memberController{
     async findAll(): Promise<Member[]>{
         return this.memberService.findAll();
     }
+    @Get(':id')
+  async findOneByCardId(@Param('id') id: number): Promise<Member> {
+    return this.memberService.findOneByCardId(id);
+  }
 }

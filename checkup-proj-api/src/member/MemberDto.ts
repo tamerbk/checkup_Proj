@@ -11,7 +11,7 @@ export class MemberDto {
   lastName: string;
 
   @IsInt()
-  carNb: number;
+  cardNb: number;
 
   @IsString()
   shiftDay: string;
@@ -30,7 +30,7 @@ export class CreateMemberDto {
   lastName: string;
 
   @IsInt()
-  carNb: number;
+  cardNb: number;
 
   @IsString()
   shiftDay: string;
@@ -47,7 +47,7 @@ export class UpdateMemberDto {
   lastName?: string;
 
   @IsInt()
-  carNb?: number;
+  cardNb?: number;
 
   @IsString()
   shiftDay?: string;

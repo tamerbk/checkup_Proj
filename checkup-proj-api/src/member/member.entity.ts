@@ -15,7 +15,7 @@ export class Member{
   
   
     @Column({ type: 'integer', nullable: false })
-    carNb: number;
+    cardNb: number;
   
     @Column()
     shiftDay: string;

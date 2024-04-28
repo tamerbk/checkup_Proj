@@ -11,6 +11,9 @@ export class memberService{
         private readonly memberRepository: Repository<Member>,
      ){}
 
+     async findOneByCardId(id: number): Promise<Member> {
+      return this.memberRepository.findOne({ where: { cardNb:id } });
+    }
      async create(createMemberDto: CreateMemberDto): Promise<Member> {
       const member = this.memberRepository.create(createMemberDto);
       return this.memberRepository.save(member);

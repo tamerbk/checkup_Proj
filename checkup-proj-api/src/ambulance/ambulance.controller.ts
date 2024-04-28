@@ -11,7 +11,7 @@ export class ambulanceController{
 
     @Post()
   async create(@Body() createAmbulanceDto: CreateAmbulanceDto): Promise<AmbulanceDto> {
-    return this.ambulanceService.create(createAmbulanceDto);
+    return this.ambulanceService.createAmbulanceCheckup(createAmbulanceDto);
   }
 
   @Get()

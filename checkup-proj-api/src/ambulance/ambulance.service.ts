@@ -12,10 +12,21 @@ export class ambulanceService{
         private readonly ambulanceRepository: Repository<Ambulance>,
      ){}
 
-     async create(createAmbulanceDto: CreateAmbulanceDto): Promise<AmbulanceDto> {
-      const ambulance = await this.ambulanceRepository.save(createAmbulanceDto);
-      return this.entityToDto(ambulance);
+     async createAmbulanceCheckup(data: Partial<Ambulance>): Promise<Ambulance> {
+      const currentDate = new Date();
+      
+      // Format the time as HH:mm:ss (e.g., 14:30:00)
+      const currentTime = currentDate.toTimeString().slice(0, 8);
+    
+      const ambulanceCheckup = this.ambulanceRepository.create({
+        ...data,
+        date: currentDate, // Set the date to the current date
+        time: currentTime, // Set the time to the current time as a string
+      });
+      
+      return await this.ambulanceRepository.save(ambulanceCheckup);
     }
+    
   
     async findAll(): Promise<AmbulanceDto[]> {
       const ambulances = await this.ambulanceRepository.find();
